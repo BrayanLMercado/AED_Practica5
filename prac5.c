@@ -24,7 +24,7 @@ void mostrarPorPromedio(struct Nodo* inicio);
 void mostrarPorNombre(struct Nodo* inicio);
 void menuOpciones();
 int mystrCmp(char* str1, char* str2);
-int revisarRepeticiones(struct Nodo* inicioCadena,char* nombre);
+int buscarRepeticiones(struct Nodo* inicioCadena,char* nombre);
 
 int main(){
     int opt=0;
@@ -47,7 +47,7 @@ int main(){
                     inicioCadena=inicio;
                 }
                 else{
-                    if(revisarRepeticiones(inicioCadena,nombre))
+                    if(buscarRepeticiones(inicioCadena,nombre))
                         printf("Ya Existe Un Alumno Con Ese Nombre\n");
                     else{
                         printf("Promedio del alumno: ");
@@ -108,7 +108,7 @@ struct Nodo* crearNodo(char* nombre,int promedio){
     return nuevoNodo;
 }
 
-int revisarRepeticiones(struct Nodo* inicioCadena,char* nombre){
+int buscarRepeticiones(struct Nodo* inicioCadena,char* nombre){
     struct Nodo* auxiliar=inicioCadena;
     while(auxiliar!=NULL && mystrCmp(auxiliar->nombre,nombre)!=0)
         auxiliar=auxiliar->siguiente;
